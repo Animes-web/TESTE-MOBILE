@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animes.web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet"> 
+    <link rel="icon" href="IMG/perfil.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-photo/illustration-anime-character-rain_23-2151394705.jpg?ga=GA1.1.274510423.1739221639&semt=ais_hybrid");
+            background-size: cover;
+background-position: center;
+background-attachment: fixed;
+
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header, footer {
+            background-color: rgba(255, 255, 255, 0);
+            text-align: center;
+        }
+
+        header h1, footer p {
+            margin: 0;
+            color: rgb(108, 0, 250);
+            text-shadow: 0 0 5px rgb(89, 44, 252), rgba(0, 81, 230, 0.7);
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 0 5px rgb(96, 0, 223), rgba(0, 230, 230, 0.7);
+            font-family: 'Poppins', sans-serif;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .centerlist {
+            display: flex;
+            align-items: center;
+            align-items: column;
+        }
+        .center {
+            align-items: left;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgb(0, 187, 0), rgba(0, 179, 179, 0.8);
+        }
+
+        img {
+            border: 3px solid #0b0;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgb(0, 187, 0), rgba(0, 230, 230, 0.7);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        img:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 0 0 30px rgb(0, 187, 0), rgba(0, 230, 230, 0.9);
+        }
+
+
+        .character-list {
+            text-align: left;
+            margin-left: 20px;
+            padding: 2px;
+        }
+
+        .user-info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+
+        .user-info img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .character-card {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid #ff4081;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(168, 168, 168, 0.1);
+        }
+
+        .character-card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+        }
+
+        .character-card p {
+            margin: 0;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .character-card a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .character-card a:hover {
+            text-decoration: underline;
+        }
+        
+        .carousel {
+    overflow: hidden;
+    width: 100%;
+    background-color: #1e272e;
+    padding: 30px 0;
+    margin-top: 60px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+    position: relative;
+}
+
+.image-container {
+    display: flex;
+    width: fit-content;
+    animation: slide 12s linear infinite;
+}
+
+.image-container img {
+  margin: 10px;
+    width: 600px;
+    height: 270px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 1px solid #a5b1c2;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+ 
+.container-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 45%;
+}
+
+.info-box img {
+    width: 150px; /* Ajusta o tamanho da imagem */
+    height: auto;
+    border-radius: 10px; /* Deixa a imagem mais estilizada */
+}
+
+.info-box p {
+    font-size: 16px;
+    color: white; /* Ajusta conforme o fundo do site */
+}
+
+@media (max-width: 768px) {
+    .container-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .info-box {
+        max-width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+header {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(81, 7, 255);
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* Estilizando o ícone do menu hamburguer */
+.hamburguer {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Ajustes para Mobile */
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* Esconde o menu no mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 10px 0;
+    }
+
+    .menu li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .hamburguer {
+        display: block; /* Mostra o ícone no mobile */
+    }
+
+    .menu.active {
+        display: flex; /* Exibe o menu ao clicar */
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu.active {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ANIMES.WEB</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="animes.html">Animes</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="publication.html">Publicações</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+            </ul>
+        </nav>
+        <div class="hamburguer" onclick="toggleMenu()">
+            ☰
+        </div>
+    </header>
+    
+    <input type="text" id="search" placeholder="Pesquisar personagens..." onkeyup="searchCharacter()" style="margin: 20px 0; padding: 10px; width: 100%; max-width: 400px; border-radius: 5px; border: 1px solid #cccccc41;">
+
+
+   
+<br><br><br><br><br><br>
+    <section class="carousel">
+        <!-- Carrossel de Banners -->
+        <div class="image-container">
+          <img src="IMG/1243608.png" alt="">
+          <img src="IMG/1251802.png" alt="">
+          <img src="IMG/1329248.png" alt="">
+          <img src="IMG/1332373.png" alt="">        
+    </section>
+
+    <div class="container-info">
+        <div class="info-box">
+            <img src="IMG/sinopse.jpeg" alt="Descrição 1">
+            <p>Tomodachi Game conta a história de Yuuichi Katagiri, um estudante do ensino médio que valoriza a amizade acima de tudo. Ele vive com seus amigos Shiho, Tenji, Makoto e Yutori. Quando os fundos da viagem escolar da classe são roubados, os cinco são forçados a participar do "Jogo do Amigo".</p>
+        </div>
+        <div class="info-box">
+            <img src="IMG/mangá.jpeg" alt="Descrição 2">
+            <p>Katagiri Yuuichi acredita que amigos são mais importantes do que dinheiro, mas ele também conhece as dificuldades de não ter fundos suficientes. Ele se esforça para economizar e fazer uma viagem para o colégio, porque prometeu a seus quatro melhores amigos que todos irão juntos. Porém, depois de recolher todo o dinheiro da aula, eles o roubam! As suspeitas recaem sobre os dois amigos de Yuuichi, Sawaragi Shiho e Shibe Makoto.
+
+                Logo em seguida, os cinco são sequestrados e acordam em uma sala estranha com um personagem de um antigo anime. Aparentemente, um deles os colocou em um ‘jogo de amizade’ para cuidar de sua enorme dívida. Mas quem era ele e por que eles tinham essa dívida? O dinheiro da classe poderia ter sido roubado para pagar a entrada no jogo? Yuuichi e seus melhores amigos terão que ter sucesso em jogos psicológicos que irão testar ou destruir sua fé nos outros. Baseado no mangá de Mikoto Yamaguchi.
+                
+                Episódios: 12 • Duração: 22 min.
+                Estúdio: Okuruto Noboru.</p>
+        </div>
+    </div>
+    
+    <br><br>
+    <a href="video.html">Edit tomodachi-game (Bad-Guy)</a><br><br>
+    <a href="video2.html">Edit de Chainsaw Man ao som de WTF2</a>
+    <br>
+    <div class="center">
+        <h1>TOMODACHI GAME</h1>
+    </div>
+
+    <main>
+
+        <p><a href="https://animesonlinecc.to/anime/tomodachi-game/">Tomodachi Game</a> (em japonês: トモダチゲーム, transl. Tomodachi Gēmu) é uma série de mangá japonesa conceituada por Mikoto Yamaguchi e escrita e ilustrada por Yuki Sato. Foi serializada na Bessatsu Shōnen Magazine da Kodansha desde dezembro de 2013. Uma adaptação para drama de televisão e dois filmes live-action estrearam em 2017. Uma adaptação para anime pelo estúdio P.A. Works estreou em 2022.</p>
+
+    <div class="centerlist">
+        <div class="character-list">
+            <div class="character-card"><p><a href="yuichi.html">Yūichi Katagiri (片桐 優一 Katagiri Yūichi?)</a></p></div>
+            <div class="character-card"><p><a href="shiho.html">Shiho Sawaragi (佐原 志帆 Sawaragi Shiho?)</a></p></div>
+            <div class="character-card"><p><a href="tenji.html">Tenji Mikasa (美笠天智 Mikasa Tenji?)</a></p></div>
+            <div class="character-card"><p><a href="makoto.html">Makoto Shibe (四部誠 Shibe Makoto?)</a></p></div>
+            <div class="character-card"><p><a href="yutori.html">Yutori Kokorogi (心木ゆとり Kokorogi Yutori?)</a></p></div>
+            <div class="character-card"><p><a href="manabu.html">Manabu-kun (マナブくん?)</a></p></div>
+            <div class="character-card"><p><a href="maria.html">Maria Mizuse (水瀬マリア Mizuse Maria?)</a></p></div>
+            <div class="character-card"><p><a href="tsukino.html">Tsukino (月野?)</a></p></div>
+            <div class="character-card"><p><a href="manabu-sensei.html">Manabu-sensei (マナブ先生?)</a></p></div>
+            <div class="character-card"><p><a href="reiko.html">Reiko Tamai (玉井レイコ Tamai Reiko?)</a></p></div>
+        </div>      
+    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Animes.web. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function createUser() {
+            const fileInput = document.getElementById('file-input');
+            const usernameInput = document.getElementById('username-input');
+            const userInfo = document.getElementById('user-info');
+            const profilePic = document.getElementById('profile-pic');
+            const userName = document.getElementById('user-name');
+
+            if (usernameInput.value) {
+                userName.textContent = usernameInput.value;
+                userInfo.style.display = 'flex';
+
+               
+                if (fileInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profilePic.src = e.target.result;
+                    }
+                    reader.readAsDataURL(fileInput.files[0]);
+                }
+
+                
+                fileInput.style.display = 'none';
+                usernameInput.style.display = 'none';
+                document.querySelector('#user-form button').style.display = 'none';
+            }
+        }
+
+        function toggleUserForm() {
+            const userForm = document.getElementById('user-form');
+            userForm.style.display = userForm.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        function searchCharacter() {
+            const input = document.getElementById('search');
+            const filter = input.value.toLowerCase();
+            const characterCards = document.querySelectorAll('.character-card');
+
+            characterCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                cald.style.display = text.includes(filter) ? '' : 'none';
+            });
+        }
+
+        function toggleMenu() {
+    document.querySelector(".menu").classList.toggle("active");
+}
+
+    </script>
+</body>
+</html>
